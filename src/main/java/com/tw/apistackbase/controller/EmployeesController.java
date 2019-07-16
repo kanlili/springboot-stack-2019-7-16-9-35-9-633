@@ -31,6 +31,11 @@ public class EmployeesController {
         employee.set(employees.getId(),employees);
         return  employee;
     }
-    
+    @DeleteMapping
+    public List<Employees> deleteEmployees(@RequestBody Employees employees){
+        List<Employees>employee=Employees.createEmployees();
+        employee.remove(employees.getId());
+        return  employee;
+    }
 }
 
