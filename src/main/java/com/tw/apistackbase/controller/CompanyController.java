@@ -2,10 +2,7 @@ package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.model.Company;
 import com.tw.apistackbase.model.Employees;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +25,12 @@ public class CompanyController {
     public List<Employees> getEmployees(@PathVariable int id) {
         List<Company>complany=Company.createCompany();
         return complany.stream().filter(e -> e.getId() == id).collect(Collectors.toList()).get(0).getEmployeesList();
+    }
+    @PostMapping
+    public  List<Company>  postCompany(@RequestBody Company company){
+        List<Company> companies=Company.createCompany();
+        companies.add(company);
+        return companies;
     }
 
 }
