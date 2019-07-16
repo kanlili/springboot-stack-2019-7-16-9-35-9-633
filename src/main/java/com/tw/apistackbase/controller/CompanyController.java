@@ -38,5 +38,10 @@ public class CompanyController {
         companies.set(company.getId(),company);
         return  companies;
     }
-    
+    @DeleteMapping("/{id}")
+    public List<Company> deleteCompany(@PathVariable int id){
+        List<Company> companies=Company.createCompany();
+        companies.remove(id);
+        return companies;
+    }
 }
