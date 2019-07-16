@@ -32,5 +32,11 @@ public class CompanyController {
         companies.add(company);
         return companies;
     }
-
+    @PutMapping
+    public List<Company> putCompany(@RequestBody Company company){
+        List<Company> companies=Company.createCompany();
+        companies.set(company.getId(),company);
+        return  companies;
+    }
+    
 }
