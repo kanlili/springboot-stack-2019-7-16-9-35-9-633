@@ -15,14 +15,19 @@ import java.util.stream.Collectors;
 @RequestMapping("/company")
 public class CompanyController {
     @GetMapping
-    public List<Company> getEmployees() {
+    public List<Company> getCompany() {
         List<Employees>employee=new ArrayList<>();
         return Company.createCompany();
     }
     @GetMapping("/{id}")
-    public Company getEmployees(@PathVariable int id) {
+    public Company getCompany(@PathVariable int id) {
         List<Company>complany=Company.createCompany();
         return complany.stream().filter(e -> e.getId() == id).collect(Collectors.toList()).get(0);
+    }
+    @GetMapping("/{id}/employeesList")
+    public List<Employees> getEmployees(@PathVariable int id) {
+        List<Company>complany=Company.createCompany();
+        return complany.stream().filter(e -> e.getId() == id).collect(Collectors.toList()).get(0).getEmployeesList();
     }
 
 }
