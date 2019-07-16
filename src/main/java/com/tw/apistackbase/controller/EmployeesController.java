@@ -1,11 +1,11 @@
 package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.model.Employees;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/employees")
 public class EmployeesController {
@@ -13,6 +13,17 @@ public class EmployeesController {
     public List<Employees> getEmployees() {
 
         return Employees.createEmployees();
+    }
+    @GetMapping("/{id}")
+    public Employees getEmployees(@PathVariable int id) {
+        List<Employees>employee=Employees.createEmployees();
+        return employee.stream().filter(e -> e.getId() == id).collect(Collectors.toList()).get(1);
+    }
+    @PostMapping
+    public  List<Employees>  postEmployee(@RequestBody Employees employees){
+        List<Employees>employee=Employees.createEmployees();
+        employee.add(employees);
+        return employee;
     }
 }
 

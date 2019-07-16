@@ -61,6 +61,7 @@ public class Employees {
         List<Employees>employee=new ArrayList<>();
         Employees employe=new Employees(4,"alibaba1",20,"Male",6000);
         employee.add(employe);
+        employee.add(new Employees(11,"lisi",19,"Female",7000));
         return  employee;
 
     }
