@@ -1,5 +1,6 @@
 package com.tw.apistackbase.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
@@ -31,9 +32,19 @@ public class Company {
         this.employeesList = employeesList;
     }
 
-    public Company(String companyName, int employeesNumber, List<Employees> employeesList) {
+    public Company(String companyName, int employeesNumber) {
         this.companyName = companyName;
         this.employeesNumber = employeesNumber;
-        this.employeesList = employeesList;
     }
+
+    public static List<Company> createCompany() {
+        List<Company>company=new ArrayList<>();
+        company.add(new Company("baidu",10));
+        company.add(new Company("google",100));
+
+        return  company;
+
+    }
+
+
 }
