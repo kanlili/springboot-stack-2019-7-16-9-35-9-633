@@ -25,5 +25,12 @@ public class EmployeesController {
         employee.add(employees);
         return employee;
     }
+    @PutMapping
+    public List<Employees> putEmployees(@RequestBody Employees employees){
+        List<Employees>employee=Employees.createEmployees();
+        employee.set(employees.getId(),employees);
+        return  employee;
+    }
+    
 }
 

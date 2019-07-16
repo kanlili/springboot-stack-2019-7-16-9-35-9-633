@@ -9,7 +9,9 @@ public class Employees {
     private  int age;
     private String gender;
     private  int salary;
+    public Employees(){
 
+    }
     public Employees(int id, String name, int age, String gender, int salary) {
         this.id = id;
         this.name = name;
@@ -65,4 +67,5 @@ public class Employees {
         return  employee;
 
     }
+
 }
